@@ -1,6 +1,9 @@
 <?php
 use Fuel\Core\TestCase;
-class Test_Model_User extends TestCase {
+
+require_once APPPATH.'/tests/model/base.php';
+require_once APPPATH.'../vendor/autoload.php';
+class Test_Model_User extends Test_Model_Base {
     private $model_user;
 
     public function setUp() {
@@ -9,6 +12,7 @@ class Test_Model_User extends TestCase {
 
     public function tearDown() {
     	unset($this->model_user);
+    	Mockery::close();
     }
 
     public function test_a() {
@@ -23,6 +27,9 @@ class Test_Model_User extends TestCase {
         $this->assertEquals('updateData', $this->model_user->updateData());
     }
 
+    public function test_inherit() {
+    	$this->assertEquals('baseA', $this->baseA());
+    }
 
     public function test_insertDataUser() {
         $this->assertEquals('insertData', $this->model_user->insertData());
@@ -30,5 +37,25 @@ class Test_Model_User extends TestCase {
 
     public function test_deleteDataUser() {
         $this->assertEquals('deleteData', $this->model_user->deleteData());
+    }
+
+    public function test_addPrivate() {
+        $this->assertEquals('addPrivate', $this->execNotPublicMethod($this->model_user, 'addPrivate'));
+    }
+
+    public function test_nativeMocks() {
+        /*
+    	$mock = $this->getMock('SomeClass');
+    	$mock->expects($this->once())
+    	   ->method('getName')
+    	   ->will($this->returnValue('Toan'));
+
+    	$this->assertEquals('Toan', $mock->getName());
+    	*/
+        $mock = Mockery::mock('SomeClass');
+        $mock->shouldReceive('a')
+            ->once()
+            ->andReturn('A');
+        $this->assertEquals('A', $mock->a());
     }
 }

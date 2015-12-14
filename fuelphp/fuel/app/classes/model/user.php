@@ -20,4 +20,8 @@ class Model_User extends \Fuel\Core\Model {
     public function insertData() {
         return 'insertData';
     }
+
+    private function addPrivate() {
+    	return 'addPrivate';
+    }
 }
