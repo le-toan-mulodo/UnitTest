@@ -13,8 +13,10 @@
         { "type": "vcs", "url": "https://github.com/fuel/orm" },
         { "type": "vcs", "url": "https://github.com/fuel/parser" }
     ],
+    "require-dev": {
+        "phpunit/phpunit": "3.7.*"
+    },
     "require": {
-    	"phpunit/phpunit": "5.1"
         "php": ">=5.3.3",
         "composer/installers": "~1.0",
         "fuel/docs": "dev-1.7/master",

@@ -44,8 +44,10 @@ return array(
 		 * At present, there is no support for phpunit.phar.
 		 */
 
-		'autoload_path' => 'PHPUnit/Autoload.php' ,
-		'binary_path'   => 'phpunit' ,
+// 		'autoload_path' => 'PHPUnit/Autoload.php' ,
+// 		'binary_path'   => 'phpunit' ,
+        'autoload_path' => VENDORPATH.'phpunit/phpunit/PHPUnit/Autoload.php',
+        'binary_path' => VENDORPATH.'bin/phpunit'
 
 	),
 );
