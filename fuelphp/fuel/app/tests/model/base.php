@@ -1,5 +1,6 @@
 <?php
 use Fuel\Core\TestCase;
+
 class Test_Model_Base extends TestCase {
     public function baseA() {
     	return "baseA";
