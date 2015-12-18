@@ -10,8 +10,8 @@
         <server name="FUEL_ENV" value="test"/>
     </php>
     <testsuites>
-        <testsuite name="model">
-            <directory suffix=".php">./tests/model</directory>
+        <testsuite name="tests">
+            <directory suffix=".php">./tests</directory>
         </testsuite>
     </testsuites>
 </phpunit>

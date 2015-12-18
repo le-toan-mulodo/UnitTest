@@ -4,24 +4,30 @@
  * @author letoan
  *
  */
-class Model_User extends \Fuel\Core\Model {
-    public function getData() {
+class model_user extends \Fuel\Core\Model
+{
+    public function getData()
+    {
         return 'getData';
     }
 
-    public function updateData() {
-         return 'updateData';
+    public function updateData()
+    {
+        return 'updateData';
     }
 
-    public function deleteData() {
+    public function deleteData()
+    {
         return 'deleteData';
     }
 
-    public function insertData() {
+    public function insertData()
+    {
         return 'insertData';
     }
 
-    private function addPrivate() {
-    	return 'addPrivate';
+    private function addPrivate()
+    {
+        return 'addPrivate';
     }
 }

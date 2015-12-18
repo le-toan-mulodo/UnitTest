@@ -29,8 +29,21 @@ class controller_welcome extends Controller
 	 */
 	public function action_index()
 	{
-		return Response::forge(View::forge('welcome/index'));
-	
+	    $data = array();
+
+	    $email = Input::post('email');
+	    $content_feedback = Input::post('content_feedback');
+	    if(!empty($email) && !empty($content_feedback)) {
+	    	$message = 'Your feedback is sent successfully!';
+	    	$data = array(
+	    	    'email' => $email,
+	    	    'content_feedback' => $content_feedback,
+	    	    'message' => $message
+	    	);
+	    }
+
+		return Response::forge(View::forge('welcome/index', $data));
+
 	}
 
 	/**
@@ -44,9 +57,12 @@ class controller_welcome extends Controller
 	{
 		return Response::forge(Presenter::forge('welcome/hello'));
 	}
-	
+
+
+
+
 	/**
-	* Buy products 
+	* Buy products
 	*
 	* @return string
 	*/
@@ -55,9 +71,9 @@ class controller_welcome extends Controller
 		$a = TRUE;
 		if ($a)
 		{
-		  
-				
-				echo "1";		
+
+
+				echo "1";
 		}
 		else
 		{

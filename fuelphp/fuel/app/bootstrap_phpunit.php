@@ -38,6 +38,7 @@ if ( ! is_file(VENDORPATH.'autoload.php'))
 {
 	die('Composer is not installed. Please run "php composer.phar update" in the project root to install Composer');
 }
+
 require VENDORPATH.'autoload.php';
 
 if (class_exists('AspectMock\Kernel'))
@@ -68,7 +69,11 @@ else
 class_alias('Fuel\\Core\\Autoloader', 'Autoloader');
 
 // Boot the app
+
+
 require_once APPPATH.'bootstrap.php';
+require_once APPPATH.'tests/model/base.php';
+require_once APPPATH.'tests/api/base.php';
 
 // Set test mode
 \Fuel::$is_test = true;
